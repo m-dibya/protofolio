@@ -33,6 +33,7 @@ const observer1 = new IntersectionObserver((entries) => {
         number1.innerHTML = countre1 + "%";
       }, 55);
       entry.target.classList.add("animation-bar-1");
+      observer1.unobserve(entry.target);
     }
   });
 });
@@ -56,6 +57,7 @@ const observer2 = new IntersectionObserver((entries) => {
         number2.innerHTML = countre2 + "%";
       }, 65);
       entry.target.classList.add("animation-bar-2");
+      observer2.unobserve(entry.target);
     }
   });
 });
@@ -79,6 +81,7 @@ const observe3 = new IntersectionObserver((entries) => {
         number3.innerHTML = countre3 + "%";
       }, 75);
       entry.target.classList.add("animation-bar-3");
+      observe3.unobserve(entry.target);
     }
   });
 });
@@ -103,6 +106,7 @@ const observe4 = new IntersectionObserver((entries) => {
       }, 70);
 
       entry.target.classList.add("animation-bar-4");
+      observe4.unobserve(entry.target);
     }
   });
 });
@@ -126,6 +130,7 @@ const observe5 = new IntersectionObserver((entries) => {
         number5.innerHTML = countre5 + "%";
       }, 55);
       entry.target.classList.add("animation-bar-5");
+      observe5.unobserve(entry.target);
     }
   });
 });
@@ -150,6 +155,7 @@ const observe6 = new IntersectionObserver((entries) => {
         number6.innerHTML = countre6 + "%";
       }, 78);
       entry.target.classList.add("animation-bar-6");
+      observe6.unobserve(entry.target);
     }
   });
 });
@@ -173,6 +179,7 @@ const observe7 = new IntersectionObserver((entries) => {
         number7.innerHTML = countre7 + "%";
       }, 70);
       entry.target.classList.add("animation-bar-7");
+      observe7.unobserve(entry.target);
     }
   });
 });
@@ -197,6 +204,7 @@ const observe8 = new IntersectionObserver((entries) => {
       }, 88);
 
       entry.target.classList.add("animation-bar-8");
+      observe8.unobserve(entry.target);
     }
   });
 });
@@ -214,19 +222,20 @@ $(document).ready(function () {
     $(".navbar").removeClass("nav-toggle");
   });
 
-  $(".portfolio .button-container .btn").click(function () {
-    let filter = $(this).attr("data-filter");
-    if (filter == "all") {
-      $(".portfolio .image-container .box").show("400");
-    } else {
-      $(".portfolio .image-container .box")
-        .not("." + filter)
-        .hide("200");
-      $(".portfolio .image-container .box")
-        .filter("." + filter)
-        .show("400");
-    }
-  });
+  // $(".portfolio .button-container .btn").click(function () {
+  //   let filter = $(this).attr("data-filter");
+  //   if (filter == "all") {
+  //     $(".portfolio .image-container .box").show();
+  //   } else {
+  //     $(".portfolio .image-container .box")
+  //       .not("." + filter)
+  //       .hide();
+  //     $(".portfolio .image-container .box")
+  //       .filter("." + filter)
+  //       .show();
+        
+  //   }
+  // });
 
   $("#theme-toggler").click(function () {
     $(this).toggleClass("fa-sun");
@@ -246,3 +255,99 @@ $(document).ready(function () {
     );
   });
 });
+
+
+
+/*===== SCROLL REVEAL ANIMATION =====*/
+const sr = ScrollReveal({
+  distance: '60px',
+  duration: 2800,
+  reset: true,
+});
+
+sr.reveal(`.home .image img`,{
+  origin:'top',
+  interval:100,
+})
+
+sr.reveal(`.home .content .home_btn,.home .content h3, .home .content p `,{
+  origin:'top',
+  interval:100,
+})
+
+sr.reveal(`.download, .about .row .box-1, .about .row .box-2`,{
+  origin:'top',
+  interval:100,
+})
+
+sr.reveal(`.about h1`,{
+  origin:'top',
+  interval:100,
+})
+sr.reveal(`.about .row .box-3`,{
+  origin:'left',
+  interval:100,
+})
+sr.reveal(` .about .row .box-4`,{
+  origin:'right',
+  interval:100,
+})
+
+sr.reveal(`.services .heading`,{
+  origin:'top',
+  interval:100,
+})
+
+sr.reveal(`.services .box-container .box`,{
+  origin:'top',
+})
+sr.reveal(`.portfolio .heading`,{
+  origin:'top',
+  interval:100,
+})
+sr.reveal(`.portfolio .button-container .btn`,{
+  origin:'top',
+  interval:100,
+})
+sr.reveal(`.portfolio .image-container .design`,{
+  origin:'left',
+})
+sr.reveal(`.portfolio .image-container .code`,{
+  origin:'left',
+})
+sr.reveal(`.portfolio .image-container .website`,{
+  origin:'right',
+})
+sr.reveal(`.portfolio .image-container .brand`,{
+  origin:'left',
+})
+
+sr.reveal(`.blog .image-container, .blog .heading`,{
+  origin:'top',
+  interval:100,
+})
+
+sr.reveal(`.contact .heading`,{
+  origin:'top',
+  interval:100,
+})
+sr.reveal(`.contact .box-container .box`,{
+  origin:'top',
+  interval:100,
+  delay:200,
+})
+sr.reveal(`.contact .row form`,{
+  origin:'left',
+  delay:400,
+})
+sr.reveal(`.contact .row iframe`,{
+  origin:'right',
+  delay:400,
+})
+
+
+
+
+
+
+
